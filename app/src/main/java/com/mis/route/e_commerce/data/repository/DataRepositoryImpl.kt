@@ -4,8 +4,9 @@ import com.mis.route.e_commerce.data.models.category.Category
 import com.mis.route.e_commerce.data.models.product.Product
 import com.mis.route.e_commerce.data.models.subcategory.SubCategory
 import com.mis.route.e_commerce.data.source.OnlineDataSourceContract
+import javax.inject.Inject
 
-class DataRepositoryImpl(
+class DataRepositoryImpl @Inject constructor(
     private val onlineDataSource: OnlineDataSourceContract
 ) : DataRepositoryContract {
     override suspend fun getCategories(): List<Category?>? {

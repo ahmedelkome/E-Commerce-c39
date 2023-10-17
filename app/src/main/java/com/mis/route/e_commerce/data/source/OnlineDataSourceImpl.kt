@@ -4,8 +4,9 @@ import com.mis.route.e_commerce.data.api.WebServices
 import com.mis.route.e_commerce.data.models.category.Category
 import com.mis.route.e_commerce.data.models.product.Product
 import com.mis.route.e_commerce.data.models.subcategory.SubCategory
+import javax.inject.Inject
 
-class OnlineDataSourceImpl(
+class OnlineDataSourceImpl @Inject constructor(
     private val webServices: WebServices
 ) : OnlineDataSourceContract {
     override suspend fun getCategories(): List<Category?>? {

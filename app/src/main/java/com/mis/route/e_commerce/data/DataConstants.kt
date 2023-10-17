@@ -7,4 +7,6 @@ object DataConstants {
     const val LAPS_ACCESSORIES_ID = "6407f3a8b575d3b90bf957e2"
 
 
+    const val LOGGING_TAG = "APIService"
+    const val API_BASE_URL = "https://ecommerce.routemisr.com/"
 }

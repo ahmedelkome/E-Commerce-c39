@@ -19,13 +19,17 @@ import com.mis.route.e_commerce.ui.activities.home.fragments.home.adapter.Catego
 import com.mis.route.e_commerce.ui.activities.home.fragments.home.adapter.OfferViewPagerAdapter
 import com.mis.route.e_commerce.ui.activities.home.fragments.home.adapter.ProductsRecyclerAdapter
 import com.mis.route.e_commerce.ui.UIConstants.whenViewIsShown
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    // automatically injected
     private val viewModel: HomeFragmentViewModel by viewModels()
-    private val categoriesAdapter = CategoriesRecyclerAdapter(null)
-    private val productsAdapter = ProductsRecyclerAdapter(null)
+    @Inject lateinit var categoriesAdapter: CategoriesRecyclerAdapter
+    @Inject lateinit var productsAdapter: ProductsRecyclerAdapter
     private var isProductsAlreadyVisible = false
 
     override fun onCreateView(

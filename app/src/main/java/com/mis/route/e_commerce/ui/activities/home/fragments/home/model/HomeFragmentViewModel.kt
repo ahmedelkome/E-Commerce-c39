@@ -5,15 +5,18 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mis.route.e_commerce.data.api.APIManager
 import com.mis.route.e_commerce.data.models.category.Category
 import com.mis.route.e_commerce.data.models.product.Product
 import com.mis.route.e_commerce.data.models.subcategory.SubCategory
-import com.mis.route.e_commerce.data.repository.DataRepositoryImpl
-import com.mis.route.e_commerce.data.source.OnlineDataSourceImpl
+import com.mis.route.e_commerce.data.repository.DataRepositoryContract
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HomeFragmentViewModel : ViewModel() {
+@HiltViewModel
+class HomeFragmentViewModel @Inject constructor(
+    private val dataRepository: DataRepositoryContract
+) : ViewModel() {
     private var _categoriesList = MutableLiveData<List<Category?>?>(null)
     val categoriesList: LiveData<List<Category?>?> get() = _categoriesList
 
@@ -23,10 +26,6 @@ class HomeFragmentViewModel : ViewModel() {
     private var _productsList = MutableLiveData<List<Product?>?>(null)
     val productsList: LiveData<List<Product?>?> get() = _productsList
 
-
-    private val webServices = APIManager.getAPIServices()
-    private val onlineDataSource = OnlineDataSourceImpl(webServices)
-    private val dataRepository = DataRepositoryImpl(onlineDataSource)
 
     fun getCategories() {
         viewModelScope.launch {
