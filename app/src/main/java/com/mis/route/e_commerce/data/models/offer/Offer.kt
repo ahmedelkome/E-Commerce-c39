@@ -1,4 +1,4 @@
-package com.mis.route.e_commerce
+package com.mis.route.e_commerce.data.models.offer
 
 data class Offer(
     val id: Int,

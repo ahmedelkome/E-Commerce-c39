@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".HomeFragment">
+    tools:context=".ui.activities.home.fragments.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -54,6 +54,51 @@
             app:layout_constraintEnd_toEndOf="@id/offers_view_pager"
             app:layout_constraintTop_toBottomOf="@id/offers_view_pager" />
 
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/categories_recycler_view_shimmer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@id/offers_view_pager"
+            app:layout_constraintTop_toBottomOf="@id/categories_textview">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <include layout="@layout/item_category" />
+
+                    <include layout="@layout/item_category" />
+
+                    <include layout="@layout/item_category" />
+
+                    <include layout="@layout/item_category" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <include layout="@layout/item_category" />
+
+                    <include layout="@layout/item_category" />
+
+                    <include layout="@layout/item_category" />
+
+                    <include layout="@layout/item_category" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/categories_recycler_view"
             android:layout_width="0dp"
@@ -67,24 +112,47 @@
             tools:listitem="@layout/item_category" />
 
         <TextView
-            android:id="@+id/home_appliances_textview"
+            android:id="@+id/laps_accessories_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="@string/home_appliances"
+            android:text="@string/laptops_and_accessories"
             android:textAppearance="@style/home_titles"
             app:layout_constraintStart_toStartOf="@id/offers_view_pager"
-            app:layout_constraintTop_toBottomOf="@id/categories_recycler_view" />
+            app:layout_constraintTop_toBottomOf="@id/categories_recycler_view_shimmer" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/laps_accessories_recycler_view_shimmer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@id/offers_view_pager"
+            app:layout_constraintTop_toBottomOf="@id/laps_accessories_textview">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <include layout="@layout/item_product" />
+
+                <include layout="@layout/item_product" />
+
+                <include layout="@layout/item_product" />
+
+            </LinearLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/home_appliances_recycler_view"
+            android:id="@+id/laps_accessories_recycler_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="@id/offers_view_pager"
-            app:layout_constraintTop_toBottomOf="@id/home_appliances_textview"
+            app:layout_constraintTop_toBottomOf="@id/laps_accessories_textview"
             tools:listitem="@layout/item_product" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

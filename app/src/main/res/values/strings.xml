@@ -11,4 +11,5 @@
     <string name="categories">Categories</string>
     <string name="view_all">view all</string>
     <string name="home_appliances">Home Appliances</string>
+    <string name="laptops_and_accessories"><![CDATA[Laptops & Accessories]]></string>
 </resources>

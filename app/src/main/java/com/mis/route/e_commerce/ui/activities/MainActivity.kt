@@ -1,9 +1,10 @@
-package com.mis.route.e_commerce
+package com.mis.route.e_commerce.ui.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
+import androidx.appcompat.app.AppCompatActivity
+import com.mis.route.e_commerce.R
+import com.mis.route.e_commerce.ui.activities.home.HomeActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

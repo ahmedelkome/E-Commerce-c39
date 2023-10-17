@@ -1,11 +1,12 @@
-package com.mis.route.e_commerce
+package com.mis.route.e_commerce.ui.activities.home
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.mis.route.e_commerce.R
 import com.mis.route.e_commerce.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
