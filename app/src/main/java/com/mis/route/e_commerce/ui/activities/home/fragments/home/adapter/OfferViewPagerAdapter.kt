@@ -3,7 +3,7 @@ package com.mis.route.e_commerce.ui.activities.home.fragments.home.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.mis.route.e_commerce.data.models.offer.Offer
+import com.mis.route.domain.models.offer.Offer
 import com.mis.route.e_commerce.databinding.ItemOfferLeftBinding
 import com.mis.route.e_commerce.databinding.ItemOfferRightBinding
 

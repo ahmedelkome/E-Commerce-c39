@@ -5,17 +5,22 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mis.route.e_commerce.data.models.category.Category
-import com.mis.route.e_commerce.data.models.product.Product
-import com.mis.route.e_commerce.data.models.subcategory.SubCategory
-import com.mis.route.e_commerce.data.repository.DataRepositoryContract
+import com.mis.route.domain.models.category.Category
+import com.mis.route.domain.models.product.Product
+import com.mis.route.domain.models.subcategory.SubCategory
+import com.mis.route.domain.usecases.GetCategoriesUseCase
+import com.mis.route.domain.usecases.GetProductsUseCase
+import com.mis.route.domain.usecases.GetSubCategoryUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeFragmentViewModel @Inject constructor(
-    private val dataRepository: DataRepositoryContract
+    // TODO: how can Hilt provide this?
+    private val getCategoriesUseCase: GetCategoriesUseCase,
+    private val getSubCategoryUseCase: GetSubCategoryUseCase,
+    private val getProductsUseCase: GetProductsUseCase
 ) : ViewModel() {
     private var _categoriesList = MutableLiveData<List<Category?>?>(null)
     val categoriesList: LiveData<List<Category?>?> get() = _categoriesList
@@ -30,7 +35,7 @@ class HomeFragmentViewModel @Inject constructor(
     fun getCategories() {
         viewModelScope.launch {
             try {
-                _categoriesList.value = dataRepository.getCategories()
+                _categoriesList.value = getCategoriesUseCase.invoke()
             } catch (e: Exception) {
                 Log.e("CategoriesTag", e.localizedMessage ?: "Exception here!")
             }
@@ -40,7 +45,7 @@ class HomeFragmentViewModel @Inject constructor(
     fun getSubCategory(subCategoryId: String) {
         viewModelScope.launch {
             try {
-                _subCategory.value = dataRepository.getSubCategory(subCategoryId)
+                _subCategory.value = getSubCategoryUseCase.invoke(subCategoryId)
             } catch (e: Exception) {
                 Log.e("SubCategoryTag", e.localizedMessage ?: "Exception here!")
             }
@@ -50,7 +55,7 @@ class HomeFragmentViewModel @Inject constructor(
     fun getProducts(subCategoryId: String) {
         viewModelScope.launch {
             try {
-                _productsList.value = dataRepository.getProducts(subCategoryId)
+                _productsList.value = getProductsUseCase.invoke(subCategoryId)
             } catch (e: Exception) {
                 Log.e("ProductTag", e.localizedMessage ?: "Exception here!")
             }

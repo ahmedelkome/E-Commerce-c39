@@ -11,16 +11,16 @@ import androidx.fragment.app.viewModels
 import com.google.android.material.tabs.TabLayoutMediator
 import com.mis.route.e_commerce.ui.activities.home.fragments.home.model.HomeFragmentViewModel
 import com.mis.route.e_commerce.R
-import com.mis.route.e_commerce.data.DataConstants
-import com.mis.route.e_commerce.data.models.category.Category
-import com.mis.route.e_commerce.data.models.offer.Offer
+import com.mis.route.data.DataConstants
+import com.mis.route.domain.models.category.Category
+import com.mis.route.domain.models.offer.Offer
+import com.mis.route.domain.models.product.Product
 import com.mis.route.e_commerce.databinding.FragmentHomeBinding
 import com.mis.route.e_commerce.ui.activities.home.fragments.home.adapter.CategoriesRecyclerAdapter
 import com.mis.route.e_commerce.ui.activities.home.fragments.home.adapter.OfferViewPagerAdapter
 import com.mis.route.e_commerce.ui.activities.home.fragments.home.adapter.ProductsRecyclerAdapter
 import com.mis.route.e_commerce.ui.UIConstants.whenViewIsShown
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -28,8 +28,9 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
     // automatically injected
     private val viewModel: HomeFragmentViewModel by viewModels()
-    @Inject lateinit var categoriesAdapter: CategoriesRecyclerAdapter
-    @Inject lateinit var productsAdapter: ProductsRecyclerAdapter
+    // stop injection for now
+    var categoriesAdapter = CategoriesRecyclerAdapter(null)
+    var productsAdapter = ProductsRecyclerAdapter(null)
     private var isProductsAlreadyVisible = false
 
     override fun onCreateView(
@@ -53,7 +54,7 @@ class HomeFragment : Fragment() {
         viewModel.productsList.observe(viewLifecycleOwner, ::handleProductsLoaded)
     }
 
-    private fun handleProductsLoaded(productsList: List<com.mis.route.e_commerce.data.models.product.Product?>?) {
+    private fun handleProductsLoaded(productsList: List<Product?>?) {
         if (!productsList.isNullOrEmpty()) {
             // TODO: loading is delayed for debug purposes only, this MUST be removed from release versions
             Handler(Looper.getMainLooper()).postDelayed({
