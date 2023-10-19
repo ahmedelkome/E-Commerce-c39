@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="categories_rec_back_colour">#80DBE4ED</color>
+    <color name="primary_colour">#004182</color>
+    <color name="colour_primary_dark">#06004F</color>
 </resources>

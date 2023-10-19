@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".ui.categories.CategoriesFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rec"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/categories_rec_background"
+        android:paddingStart="2dp"
+        android:paddingTop="2dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.3"
+        tools:listitem="@layout/category_list_item" />
+
+    <TextView
+        android:id="@+id/cat_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/poppins"
+        android:padding="5dp"
+        android:text="Men Fashion"
+        android:textColor="@color/colour_primary_dark"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/rec"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/img"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/rec"
+        app:layout_constraintTop_toBottomOf="@id/cat_tv"
+        app:riv_corner_radius="15dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/materialButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:gravity="center"
+        android:text="@string/shop_now"
+        android:textSize="15sp"
+        app:cornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="@id/img"
+        app:layout_constraintStart_toStartOf="@id/img" />
+
+    <TextView
+        android:id="@+id/on_image_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="@string/mens_fashion"
+        android:textAlignment="textStart"
+        android:textColor="@color/colour_primary_dark"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/materialButton"
+        app:layout_constraintEnd_toEndOf="@+id/materialButton"
+
+        app:layout_constraintStart_toStartOf="@+id/materialButton"
+        app:layout_constraintTop_toTopOf="@id/img" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/product_rec"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:paddingTop="10dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/rec"
+        app:layout_constraintTop_toBottomOf="@id/img"
+        app:spanCount="3"
+        tools:listitem="@layout/cat_product_list_item" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
