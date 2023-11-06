@@ -7,7 +7,7 @@ import com.mis.route.domain.models.offer.Offer
 import com.mis.route.e_commerce.databinding.ItemOfferLeftBinding
 import com.mis.route.e_commerce.databinding.ItemOfferRightBinding
 
-class OfferViewPagerAdapter(private val offersList: List<Offer>?) :
+class OfferViewPagerAdapter(var offersList: List<Offer>?) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     class ViewHolderLeft(val binding: ItemOfferLeftBinding) :
