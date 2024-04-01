@@ -72,4 +72,16 @@
         <item name="android:textColor">@color/dark_blue</item>
         <item name="fontFamily">@font/poppins_regular</item>
     </style>
+
+    <style name="Theme.ECommerce.Fullscreen" parent="Theme.ECommerce">
+        <item name="android:actionBarStyle">@style/Widget.Theme.ECommerce.ActionBar.Fullscreen
+        </item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
+
+    <style name="ThemeOverlay.ECommerce.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
+        <item name="fullscreenTextColor">@color/light_blue_A200</item>
+    </style>
 </resources>

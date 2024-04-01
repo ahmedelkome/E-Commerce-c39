@@ -3,6 +3,7 @@ package com.mis.route.e_commerce.ui.activities.home.fragments.home
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -91,6 +92,7 @@ class HomeFragment : Fragment() {
             binding.categoriesRecyclerViewShimmer.stopShimmer()
             binding.categoriesRecyclerViewShimmer.visibility = View.INVISIBLE
             categoriesAdapter.categoriesList = state.categoriesList
+            Log.d("get", state.categoriesList.toString())
             categoriesAdapter.notifyItemRangeInserted(0, state.categoriesList.size)
         }, 1000)
     }
@@ -102,6 +104,7 @@ class HomeFragment : Fragment() {
             binding.lapsAccessoriesRecyclerViewShimmer.stopShimmer()
             binding.lapsAccessoriesRecyclerViewShimmer.visibility = View.INVISIBLE
             productsAdapter.productsList = state.productsList
+            Log.d("get", state.productsList.toString())
             productsAdapter.notifyItemRangeInserted(0, state.productsList.size)
         }, 1000)
     }
