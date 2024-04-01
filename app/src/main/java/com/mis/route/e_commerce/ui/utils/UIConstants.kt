@@ -1,4 +1,4 @@
-package com.mis.route.e_commerce.ui
+package com.mis.route.e_commerce.ui.utils
 
 import android.graphics.Rect
 import android.view.View

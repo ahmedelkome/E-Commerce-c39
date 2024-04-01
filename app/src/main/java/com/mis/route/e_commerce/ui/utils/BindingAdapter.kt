@@ -1,4 +1,4 @@
-package com.mis.route.e_commerce.ui
+package com.mis.route.e_commerce.ui.utils
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter

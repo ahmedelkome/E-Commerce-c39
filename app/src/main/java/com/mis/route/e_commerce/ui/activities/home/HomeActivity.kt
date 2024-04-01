@@ -1,7 +1,6 @@
 package com.mis.route.e_commerce.ui.activities.home
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -35,17 +34,6 @@ class HomeActivity : AppCompatActivity() {
         // let the icon selector determine the tint
         binding.bottomNavigation.itemIconTintList = null
         binding.bottomNavigation.setupWithNavController(navController)
-        binding.bottomNavigation.setOnItemSelectedListener { menuItem ->
-            val fragment = when (menuItem.itemId) {
-                // TODO: edit this later
-                R.id.homeFragment -> "Home"
-                R.id.categoriesFragment -> "Categories"
-                R.id.favoritesFragment -> "Favorites"
-                else -> "Account"
-            }
-            Toast.makeText(this, fragment, Toast.LENGTH_SHORT).show()
-            true
-        }
     }
 
     override fun onDestroy() {
