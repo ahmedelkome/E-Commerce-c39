@@ -1,5 +1,6 @@
 package com.mis.route.e_commerce.ui.activities.home
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -7,9 +8,8 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.mis.route.e_commerce.R
 import com.mis.route.e_commerce.databinding.ActivityHomeBinding
-import dagger.hilt.android.AndroidEntryPoint
+import com.mis.route.e_commerce.ui.activities.cart.CartActivity
 
-@AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
     private var _binding: ActivityHomeBinding? = null
     private val binding get() = _binding!!
@@ -22,11 +22,16 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
         retrieveNavController()
         initBottomNavView()
+        binding.cartImageview.setOnClickListener { navigateToCart() }
+    }
+
+    private fun navigateToCart() {
+        startActivity(Intent(this, CartActivity::class.java))
     }
 
     private fun retrieveNavController() {
         val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+            supportFragmentManager.findFragmentById(R.id.home_nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
     }
 

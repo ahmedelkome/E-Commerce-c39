@@ -11,7 +11,7 @@ import android.view.View
 import android.view.WindowInsets
 import androidx.appcompat.app.AppCompatActivity
 import com.mis.route.e_commerce.databinding.ActivitySplashBinding
-import com.mis.route.e_commerce.ui.activities.home.HomeActivity
+import com.mis.route.e_commerce.ui.activities.auth.AuthActivity
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
@@ -67,6 +67,8 @@ class SplashActivity : AppCompatActivity() {
         false
     }
 
+
+
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,7 +76,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         fullScreenSetup()
-        navigateToLogin()
+        navigateToAuth()
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -88,10 +90,10 @@ class SplashActivity : AppCompatActivity() {
         binding.dummyButton.setOnTouchListener(delayHideTouchListener)
     }
 
-    private fun navigateToLogin() {
+    private fun navigateToAuth() {
         // TODO: navigate to home for now, edit later
         Handler(mainLooper).postDelayed({
-            val intent = Intent(this, HomeActivity::class.java)
+            val intent = Intent(this, AuthActivity::class.java)
             startActivity(intent)
             finish()
         }, 2000)

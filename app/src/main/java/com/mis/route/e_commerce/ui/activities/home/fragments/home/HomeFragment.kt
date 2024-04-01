@@ -1,5 +1,6 @@
 package com.mis.route.e_commerce.ui.activities.home.fragments.home
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -18,9 +19,9 @@ import com.mis.route.e_commerce.ui.utils.UIConstants.whenViewIsShown
 import com.mis.route.e_commerce.ui.activities.home.fragments.home.adapter.CategoriesRecyclerAdapter
 import com.mis.route.e_commerce.ui.activities.home.fragments.home.adapter.OfferViewPagerAdapter
 import com.mis.route.e_commerce.ui.activities.home.fragments.home.adapter.ProductsRecyclerAdapter
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
+@SuppressLint("NotifyDataSetChanged")
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -46,10 +47,12 @@ class HomeFragment : Fragment() {
         initProductsRecyclerView()
     }
 
+
     private fun bindOffers(offersList: List<Offer>?) {
         if (offersList.isNullOrEmpty()) return
         offersAdapter.offersList = offersList
-        offersAdapter.notifyItemRangeInserted(0, offersList.size)
+        offersAdapter.notifyDataSetChanged()
+
     }
 
     private fun bindCategories(categoriesList: List<Category?>?) {
@@ -59,7 +62,7 @@ class HomeFragment : Fragment() {
             binding.categoriesRecyclerViewShimmer.stopShimmer()
             binding.categoriesRecyclerViewShimmer.visibility = View.INVISIBLE
             categoriesAdapter.categoriesList = categoriesList
-            categoriesAdapter.notifyItemRangeInserted(0, categoriesList.size)
+            categoriesAdapter.notifyDataSetChanged()
         }, 1000)
     }
 
@@ -70,7 +73,7 @@ class HomeFragment : Fragment() {
             binding.lapsAccessoriesRecyclerViewShimmer.stopShimmer()
             binding.lapsAccessoriesRecyclerViewShimmer.visibility = View.INVISIBLE
             productsAdapter.productsList = productsList
-            productsAdapter.notifyItemRangeInserted(0, productsList.size)
+            productsAdapter.notifyDataSetChanged()
         }, 1000)
     }
 

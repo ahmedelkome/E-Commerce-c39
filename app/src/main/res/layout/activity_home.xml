@@ -12,7 +12,7 @@
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/nav_host_fragment"
+            android:id="@+id/home_nav_host_fragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -30,7 +30,7 @@
             android:background="@drawable/shape_bottom_nav_background"
             app:labelVisibilityMode="unlabeled"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/nav_host_fragment"
+            app:layout_constraintTop_toBottomOf="@id/home_nav_host_fragment"
             app:menu="@menu/menu_home_bottom_navigation" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,12 +6,12 @@ import com.bumptech.glide.Glide
 import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerDrawable
 
-@BindingAdapter("app:imageResource")
+@BindingAdapter("imageResource")
 fun setImageResource(imageView: ImageView, resource: Int) {
     imageView.setImageResource(resource)
 }
 
-@BindingAdapter("app:imageFromUrl")
+@BindingAdapter("imageFromUrl")
 fun setImageFromUrl(imageView: ImageView, url: String?) {
     if (url.isNullOrBlank()) return
 
