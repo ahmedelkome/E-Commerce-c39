@@ -5,12 +5,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mis.route.domain.models.category.Category
-import com.mis.route.e_commerce.databinding.ItemCategoryBinding
+import com.mis.route.e_commerce.databinding.ItemCategoryCircularBinding
 
 class CategoriesRecyclerAdapter(var categoriesList: List<Category?>?) :
     RecyclerView.Adapter<CategoriesRecyclerAdapter.ViewHolder>() {
 
-    class ViewHolder(private val binding: ItemCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(private val binding: ItemCategoryCircularBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(category: Category?) {
             binding.title.setBackgroundColor(Color.TRANSPARENT)
             binding.image.setBackgroundColor(Color.TRANSPARENT)
@@ -20,7 +20,7 @@ class CategoriesRecyclerAdapter(var categoriesList: List<Category?>?) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
-            ItemCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemCategoryCircularBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
