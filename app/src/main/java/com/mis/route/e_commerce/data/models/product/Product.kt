@@ -1,7 +1,7 @@
 package com.mis.route.domain.models.product
 
 import com.mis.route.domain.models.brand.Brand
-import com.mis.route.domain.models.category.Category
+import com.mis.route.e_commerce.data.models.category.Category
 import com.mis.route.domain.models.subcategory.SubCategory
 
 

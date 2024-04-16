@@ -4,7 +4,7 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.mis.route.domain.models.category.Category
+import com.mis.route.e_commerce.data.models.category.Category
 import com.mis.route.e_commerce.databinding.ItemCategoryCircularBinding
 
 class CategoriesRecyclerAdapter(var categoriesList: List<Category?>?) :

@@ -2,45 +2,58 @@ package com.mis.route.e_commerce.ui.activities.auth.fragments.login
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
+import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.viewModels
 import com.mis.route.e_commerce.R
 import com.mis.route.e_commerce.databinding.FragmentLoginBinding
 import com.mis.route.e_commerce.ui.activities.home.HomeActivity
+import com.mis.route.e_commerce.ui.base.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-class LoginFragment : Fragment() {
-    private var _binding: FragmentLoginBinding? = null
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+@AndroidEntryPoint
+class LoginFragment : BaseFragment<FragmentLoginBinding>() {
+    private val viewModel: LoginViewModel by viewModels<LoginViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.toRegisterBtn.setOnClickListener { navigateToRegister() }
-        binding.fakeLoginBtn.setOnClickListener { fakeLogin() }
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
     }
 
-    private fun fakeLogin() {
-        startActivity(Intent(requireContext(), HomeActivity::class.java))
-        requireActivity().finish()
-    }
+    override fun getLayoutId(): Int = R.layout.fragment_login
 
-    private fun navigateToRegister() {
-        findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
+    override fun observeLiveData() {
+        super.observeLiveData()
+        viewModel.isLoadingLiveData.observe(viewLifecycleOwner) {
+            Log.e("BaseFragment", "isLoadingLiveData: $it")
+            if (it) {
+                showLoading()
+            } else {
+                hideLoading()
+            }
+        }
+        viewModel.viewMessageLiveData.observe(viewLifecycleOwner) {
+            showDialog(
+                it.title,
+                it.message,
+                it.posButtonTitle,
+                it.negButtonTitle,
+                it.onPosButtonClick,
+                it.onNegButtonClick
+            )
+        }
+        viewModel.events.observe(viewLifecycleOwner) {
+            it?.let {
+                when (it) {
+                    LoginEvents.SuccessfulLogin -> {
+                        startActivity(Intent(activity, HomeActivity::class.java))
+                    }
+                }
+            }
+        }
     }
 }

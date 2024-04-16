@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
-import com.mis.route.domain.models.category.Category
+import com.mis.route.e_commerce.data.models.category.Category
 import com.mis.route.domain.models.offer.Offer
 import com.mis.route.domain.models.product.Product
 import com.mis.route.domain.models.subcategory.SubCategory
@@ -99,7 +99,7 @@ class HomeFragment : Fragment() {
 
     private fun initOffersViewPager() {
         binding.offersViewPager.adapter = offersAdapter
-        TabLayoutMediator(binding.tabLayout, binding.offersViewPager) { tab, position ->
+        TabLayoutMediator(binding.tabLayout, binding.offersViewPager) { _, _ ->
             //Some implementation
         }.attach()
 
