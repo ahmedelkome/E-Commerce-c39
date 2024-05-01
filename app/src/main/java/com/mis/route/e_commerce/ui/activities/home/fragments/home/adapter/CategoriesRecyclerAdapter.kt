@@ -29,6 +29,6 @@ class CategoriesRecyclerAdapter(var categoriesList: List<Category?>?) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val category = categoriesList!![position]
         holder.bind(category)
-        // set click listener
+
     }
 }

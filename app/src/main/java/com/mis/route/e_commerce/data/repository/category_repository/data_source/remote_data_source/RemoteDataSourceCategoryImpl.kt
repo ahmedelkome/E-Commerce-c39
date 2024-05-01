@@ -4,9 +4,9 @@ import com.mis.route.e_commerce.data.api.WebServices
 import com.mis.route.e_commerce.data.models.category.Category
 import javax.inject.Inject
 
-class RemoteDataSourceImpl @Inject constructor(
+class RemoteDataSourceCategoryImpl @Inject constructor(
     private val webServices: WebServices
-) : RemoteDataSource {
+) : RemoteDataSourceCategory {
     override suspend fun getAllCategory(): List<Category?>? {
         try {
             val response = webServices.getAllCategory()

@@ -2,7 +2,7 @@ package com.mis.route.e_commerce.data.models.category
 
 import com.google.gson.annotations.SerializedName
 
-data class DataItem(
+data class Category(
 
 	@field:SerializedName("image")
 	val image: String? = null,

@@ -1,9 +1,10 @@
-package com.mis.route.e_commerce.domain.usecases
+package com.mis.route.e_commerce.domain.usecases.loginusecase
+
 
 import com.mis.route.e_commerce.domain.repoistory.auth_repository.AuthRepository
 import javax.inject.Inject
 
-class LoginUseCase @Inject constructor(var authRepo: AuthRepository) {
+class LoginUseCase @Inject constructor(private var authRepo: AuthRepository) {
 
     var email = ""
     var password = ""

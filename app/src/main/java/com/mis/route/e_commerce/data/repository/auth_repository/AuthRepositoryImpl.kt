@@ -1,4 +1,4 @@
-package com.mis.route.e_commerce.data.repository
+package com.mis.route.e_commerce.data.repository.auth_repository
 
 import com.mis.route.e_commerce.data.repository.auth_repository.data_sources.remote_datasource.RemoteDataSource
 import com.mis.route.e_commerce.domain.repoistory.auth_repository.AuthRepository

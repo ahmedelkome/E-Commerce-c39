@@ -8,7 +8,7 @@ data class CategoryResponse(
 	val metadata: Metadata? = null,
 
 	@field:SerializedName("data")
-	val data: List<DataItem?>? = null,
+	val data: List<Category?>? = null,
 
 	@field:SerializedName("results")
 	val results: Int? = null
