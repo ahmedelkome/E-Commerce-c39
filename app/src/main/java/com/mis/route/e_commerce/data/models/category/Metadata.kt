@@ -1,7 +1,15 @@
-package com.mis.route.domain.models.category
+package com.mis.route.e_commerce.data.models.category
+
+import com.google.gson.annotations.SerializedName
 
 data class Metadata(
-    val currentPage: Int? = null,
-    val numberOfPages: Int? = null,
-    val limit: Int? = null
+
+	@field:SerializedName("numberOfPages")
+	val numberOfPages: Int? = null,
+
+	@field:SerializedName("limit")
+	val limit: Int? = null,
+
+	@field:SerializedName("currentPage")
+	val currentPage: Int? = null
 )
