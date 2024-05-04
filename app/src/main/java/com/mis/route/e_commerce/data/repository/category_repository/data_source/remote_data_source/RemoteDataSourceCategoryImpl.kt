@@ -10,7 +10,7 @@ class RemoteDataSourceCategoryImpl @Inject constructor(
     override suspend fun getAllCategory(): List<Category?>? {
         try {
             val response = webServices.getAllCategory()
-            return response.data
+            return response.data ?: emptyList()
         } catch (e: Exception) {
             throw e
         }

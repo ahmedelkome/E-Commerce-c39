@@ -3,12 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
 
-        <variable
-            name="offer"
-            type="com.mis.route.domain.models.offer.Offer" />
-    </data>
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -24,7 +19,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                app:imageResource="@{offer.imageResId}"
+
                 tools:src="@drawable/image_headset" />
 
             <TextView
@@ -43,7 +38,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-16dp"
-                android:text="@{offer.formattedPercent}"
                 android:textAppearance="@style/percent_text"
                 app:layout_constraintStart_toStartOf="@id/up_to_textview"
                 app:layout_constraintTop_toBottomOf="@id/up_to_textview"
@@ -66,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-12dp"
-                android:text="@{offer.targetText}"
+
                 tools:text="For all Headphones \n&amp; AirPods"
                 android:textAppearance="@style/target_text"
                 app:layout_constraintStart_toStartOf="@id/up_to_textview"

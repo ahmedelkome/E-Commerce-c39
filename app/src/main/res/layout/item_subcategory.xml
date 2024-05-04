@@ -3,13 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
 
-        <variable
-            name="sub_category"
-            type="com.mis.route.domain.models.subcategory.SubCategory" />
-
-    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -42,7 +36,7 @@
             android:layout_marginTop="4dp"
             android:fontFamily="@font/poppins_regular"
             android:gravity="center"
-            android:text="@{sub_category.name}"
+
             android:textColor="@color/light_blue"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
