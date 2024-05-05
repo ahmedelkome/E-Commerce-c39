@@ -51,6 +51,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                 when (it) {
                     LoginEvents.SuccessfulLogin -> {
                         startActivity(Intent(activity, HomeActivity::class.java))
+                        requireActivity().finish()
                     }
                 }
             }

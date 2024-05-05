@@ -2,6 +2,7 @@ package com.mis.route.e_commerce.data.api
 
 import com.mis.route.e_commerce.data.models.auth.AuthResponse
 import com.mis.route.e_commerce.data.models.auth.LoginRequest
+import com.mis.route.e_commerce.data.models.brand.BrandResponse
 import com.mis.route.e_commerce.data.models.category.CategoryResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -16,4 +17,7 @@ interface WebServices {
 
     @GET("/api/v1/categories")
     suspend fun getAllCategory(): CategoryResponse
+
+    @GET("/api/v1/brands")
+    suspend fun getAllBrand(): BrandResponse
 }
